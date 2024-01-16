@@ -33,10 +33,7 @@ class ProjectList(APIView):
         
 
 class ProjectDetail(APIView):
-    permission_classes = [
-    permissions.IsAuthenticatedOrReadOnly,
-    IsOwnerOrReadOnly
-    ]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
 
     def get_object(self, pk):
         try:
