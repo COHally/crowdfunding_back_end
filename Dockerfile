@@ -1,6 +1,6 @@
-ARG PYTHON_VERSION=3.11-slim-bullseye
+ARG PYTHON_VERSION=3.10-slim-bullseye
 
-FROM python:${3.11.7}
+FROM python:${PYTHON_VERSION}
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -16,10 +16,8 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY crowdfunding/ /code/
 
-ENV SECRET_KEY "EPT3LMYaPlIPHybVZPWx9BkzVIhWKKMvYBHP0wZ6oXmQD24CNL"
 RUN python manage.py collectstatic --noinput
 RUN chmod +x /code/run.sh
-
 
 EXPOSE 8000
 
