@@ -14,7 +14,7 @@ RUN set -ex && \
     pip install --upgrade pip && \
     pip install -r /tmp/requirements.txt && \
     rm -rf /root/.cache/
-COPY COPY crowdfunding/ /code/
+COPY crowdfunding/ /code/
 
 ENV SECRET_KEY "EPT3LMYaPlIPHybVZPWx9BkzVIhWKKMvYBHP0wZ6oXmQD24CNL"
 RUN python manage.py collectstatic --noinput
