@@ -67,11 +67,11 @@ class ProjectDetail(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
     
-    # Delete Projects
     def delete(self, request, pk):
-        project = self.get_object(pk)
-        project.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        pledge = self.get_object(pk)
+        pledge.delete()
+        return Response(status=status.HTTP_200_OK)
+    
             
     
 class PledgeList(APIView):
@@ -132,9 +132,5 @@ class PledgeDetail(APIView):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
-    # Delete Pledges
-    def delete(self, request, pk):
-        pledge = self.get_object(pk)
-        pledge.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    
 
