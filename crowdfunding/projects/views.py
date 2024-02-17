@@ -17,6 +17,9 @@ class ProjectList(APIView):
         serializer = ProjectSerializer(projects, many=True)
         return Response(serializer.data)
     
+class CreateProject (APIView):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly,IsOwnerOrReadOnly]
+    
     def post(self, request):
         serializer = ProjectSerializer(data=request.data)
         if serializer.is_valid():
