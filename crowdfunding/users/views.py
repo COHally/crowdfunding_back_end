@@ -5,6 +5,7 @@ from rest_framework import status, permissions
 from .models import CustomUser
 from .serializers import CustomUserSerializer
 
+
 class CustomUserList(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def get(self, request):
@@ -55,4 +56,6 @@ class CustomUserDetail(APIView):
         user = self.get_object(pk)
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
 
